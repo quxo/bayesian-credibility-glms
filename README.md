@@ -1,4 +1,4 @@
-<h1 >Bayesian Credibility</h1>
+<h1>Bayesian Credibility</h1>
 
     
 <p> This page contains the R code used for generating the applied
@@ -17,7 +17,9 @@
       The following code downloads the data and modifies the variables
       as indicated in the article. Note that the code above downloads
       the file <code>car.csv</code> to your working directory.
-</p><pre>
+</p>
+
+<pre>
 download.file("http://www.businessandeconomics.mq.edu.au/our_departments/Applied_Finance_and_Actuarial_Studies/acst_docs/glms_for_insurance_data/data/car.csv",destfile="car.csv")
 
 cars.data <- read.csv("car.csv",header=TRUE)
@@ -29,7 +31,7 @@ cars.data$agecat <- factor(cars.data$agecat)
 
 cars.data$veh_value <- cut(cars.data$veh_value,breaks=c(0,1.2,1.86,Inf),labels=c("P1","P2","P3"),include.lowest=T)
 
-## Put together area A,B,C,D
+ ## Put together area A,B,C,D
 cars.data$area <- factor(cars.data$area,levels=c(levels(cars.data$area),"ABCD") )
 cars.data$area[cars.data$area %in% c("A","B","C","D")] <- "ABCD"
 cars.data$area <- factor(cars.data$area)
